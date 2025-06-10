@@ -1,0 +1,30 @@
+@use 'mixins' as *; 
+@use 'variables' as *;
+
+// cart section
+.cart {
+  width: 300px;
+  height: fit-content;
+  flex: 1 0 380px;
+  padding: 1rem;
+
+  h2 {
+    @include TextPreset2;
+    color: $red;
+  }
+
+  .content {
+    width: 100%;
+    height: fit-content;
+
+    .empty-cart-content {
+      @include flex(column, center, center);
+      width: 100%;
+      
+      p {
+        @include TextPreset4Bold;
+        color: $rose-500;
+      }
+    }
+  }
+}

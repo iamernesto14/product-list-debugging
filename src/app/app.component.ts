@@ -6,7 +6,7 @@ import { AddToCartComponent } from "./components/add-to-cart/add-to-cart.compone
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
-});
+})
 
 // interface
 interface Dessert {

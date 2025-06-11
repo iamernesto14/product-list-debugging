@@ -1,11 +1,8 @@
 @use 'mixins' as *;
 @use 'variables' as *;
 
-// dessert section
-
   .dessert-item {
     @include flex(column, flex-start, stretch, 2rem);
-    // width: 250px;
     height: fit-content;
 
     .item-image-add-to-cart {
@@ -30,4 +27,10 @@
         color: $red;
       }
     }
+}
+
+@media screen and (max-width:900px) {
+  .dessert-item {
+    width: 100%;
+  }
 }

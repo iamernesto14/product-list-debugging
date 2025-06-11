@@ -4,14 +4,14 @@ export interface Dessert {
   name: string;
   category: string;
   price: number;
-};
+}
 
 export interface DessertImages {
   thumbnail: string;
   mobile: string;
   tablet: string;
   desktop: string;
-};
+}
 
 export interface CartItem {
   dessert: Dessert;

@@ -3,10 +3,13 @@
 
 // cart section
 .cart {
-  width: 300px;
+  width: 350px;
   height: fit-content;
   flex: 1 0 380px;
-  padding: 1rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: $white;
+
 
   h2 {
     @include TextPreset2;
@@ -25,6 +28,95 @@
         @include TextPreset4Bold;
         color: $rose-500;
       }
+    }
+
+    .order-total {
+      @include flex(row, space-between, center);
+      width: 100%;
+
+      p:first-child {
+        @include TextPreset4Bold;
+        color: $rose-900;
+      }
+
+      p:last-child {
+        @include TextPreset2;
+        color: $rose-900;
+      }
+    }
+
+    .delivery-info {
+      @include flex(row, null, center);
+      gap: 1rem;
+      width: 100%;
+      padding: 1rem;
+      background-color: $rose-50;
+      margin-top: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .confirm-order-btn {
+      @include flex(row, center, center);
+      width: 100%;
+      background-color: $red;
+      border-radius: 99px;
+      padding: 1rem 1.5rem;
+      color: $white;
+      @include TextPreset3;
+      margin-top: 1.5rem;
+    }
+  }
+
+  .cart-items {
+    @include flex(column, null, null);
+    width: 100%;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    hr {
+      border: 1px solid $rose-100;
+    }
+  }
+
+  li {
+    list-style: none;
+    @include flex(row, space-between, center);
+    width: 100%;
+    gap: 8px;
+
+    .items {
+      @include flex(column, flex-start, null);
+      width: 100%;
+      gap: 8px;
+
+      .qty {
+        color: $red;
+        @include TextPreset4Bold;
+      }
+
+      .item-quantity {
+      @include flex(row, null, center);
+      width: 100%;
+      gap: 0.5rem;
+    }
+
+    .price {
+      color: $rose-500;
+      @include TextPreset4;
+    }
+
+    .mini-total {
+      color: $rose-500;
+      @include TextPreset4Bold;
+    }
+    }
+
+    .remove img {
+      cursor: pointer;
+      border: 1px solid $rose-400;
+      padding: 5px;
+      border-radius: 50%;
     }
   }
 }

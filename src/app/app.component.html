@@ -2,7 +2,10 @@
   <section class="desserts-container">
     <h1>Desserts</h1>
     <div class="desserts">
-      <app-product-card *ngFor="let dessert of desserts" [dessert]="dessert"></app-product-card>
+      <app-product-card
+        *ngFor="let dessert of desserts"
+        [dessert]="dessert"
+      ></app-product-card>
     </div>
   </section>
   <app-cart></app-cart>

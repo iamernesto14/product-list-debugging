@@ -6,7 +6,7 @@ import { Dessert } from '../../models/dessert.interface';
 @Component({
   selector: 'app-add-to-cart',
   templateUrl: './add-to-cart.component.html',
-  styleUrls: ['./add-to-cart.component.scss']
+  styleUrls: ['./add-to-cart.component.scss'],
 })
 export class AddToCartComponent {
   @Input() dessert!: Dessert;
@@ -16,14 +16,14 @@ export class AddToCartComponent {
   constructor(private cartService: CartService) {}
 
   // add-to-cart.component.ts
-addToCart() {
-  if (!this.dessert) {
-    console.error('Dessert is undefined');
-    return;
+  addToCart() {
+    if (!this.dessert) {
+      console.error('Dessert is undefined');
+      return;
+    }
+    this.cartService.addToCart(this.dessert, this.quantity);
+    this.isAddedToCart = true;
   }
-  this.cartService.addToCart(this.dessert, this.quantity);
-  this.isAddedToCart = true;
-}
 
   decreaseProductItem() {
     if (this.quantity > 1) {

@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [ProductCardComponent, CartComponent, CommonModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   title = 'Product list';
@@ -20,8 +20,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.dessertService.desserts$.subscribe({
-      next: (desserts) => this.desserts = desserts,
-      error: (error) => console.error('Error subscribing to desserts:', error)
+      next: (desserts) => (this.desserts = desserts),
+      error: (error) => console.error('Error subscribing to desserts:', error),
     });
   }
 }

@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Dessert } from '../models/dessert.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DessertService {
   private dessertsSubject = new BehaviorSubject<Dessert[]>([]);
@@ -18,8 +18,13 @@ export class DessertService {
   private loadDesserts(): void {
     this.http.get<Dessert[]>('/assets/data.json').subscribe({
       next: (data) => {
-        const validatedData = data.filter(dessert => 
-          dessert && dessert.name && dessert.price && dessert.category && dessert.image
+        const validatedData = data.filter(
+          (dessert) =>
+            dessert &&
+            dessert.name &&
+            dessert.price &&
+            dessert.category &&
+            dessert.image,
         );
         this.dessertsSubject.next(validatedData);
         if (data.length !== validatedData.length) {
@@ -29,7 +34,7 @@ export class DessertService {
       error: (error) => {
         console.error('Error fetching desserts:', error);
         this.dessertsSubject.next([]);
-      }
+      },
     });
   }
 }

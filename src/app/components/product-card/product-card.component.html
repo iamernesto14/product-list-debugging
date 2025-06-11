@@ -1,101 +1,17 @@
 <div class="desserts-container">
-      <div class="dessert-item">
-        <section class="item-image-add-to-cart">
-          <img src="assets/images/image-waffle-tablet.jpg" alt="dessert image">
-          <app-add-to-cart />
-        </section>
-        <section class="item-info">
-          <p class="category">Waffle</p>
-          <p class="name">Waffle with Berries</p>
-          <p class="price">6.50</p>
-        </section>
-      </div>
-      <div class="dessert-item">
-        <section class="item-image-add-to-cart">
-          <img src="assets/images/image-creme-brulee-tablet.jpg" alt="dessert image">
-          <app-add-to-cart />
-        </section>
-        <section class="item-info">
-          <p class="category">Waffle</p>
-          <p class="name">Waffle with Berries</p>
-          <p class="price">6.50</p>
-        </section>
-      </div>
-      <div class="dessert-item">
-        <section class="item-image-add-to-cart">
-          <img src="assets/images/image-macaron-tablet.jpg" alt="dessert image">
-          <app-add-to-cart />
-        </section>
-        <section class="item-info">
-          <p class="category">Waffle</p>
-          <p class="name">Waffle with Berries</p>
-          <p class="price">6.50</p>
-        </section>
-      </div>
-      <div class="dessert-item">
-        <section class="item-image-add-to-cart">
-          <img src="assets/images/image-tiramisu-tablet.jpg" alt="dessert image">
-          <app-add-to-cart />
-        </section>
-        <section class="item-info">
-          <p class="category">Waffle</p>
-          <p class="name">Waffle with Berries</p>
-          <p class="price">6.50</p>
-        </section>
-      </div>
-      <div class="dessert-item">
-        <section class="item-image-add-to-cart">
-          <img src="assets/images/image-baklava-tablet.jpg" alt="dessert image">
-          <app-add-to-cart />
-        </section>
-        <section class="item-info">
-          <p class="category">Waffle</p>
-          <p class="name">Waffle with Berries</p>
-          <p class="price">6.50</p>
-        </section>
-      </div>
-      <div class="dessert-item">
-        <section class="item-image-add-to-cart">
-          <img src="assets/images/image-meringue-tablet.jpg" alt="dessert image">
-          <app-add-to-cart />
-        </section>
-        <section class="item-info">
-          <p class="category">Waffle</p>
-          <p class="name">Waffle with Berries</p>
-          <p class="price">6.50</p>
-        </section>
-      </div>
-      <div class="dessert-item">
-        <section class="item-image-add-to-cart">
-          <img src="assets/images/image-cake-tablet.jpg" alt="dessert image">
-          <app-add-to-cart />
-        </section>
-        <section class="item-info">
-          <p class="category">Waffle</p>
-          <p class="name">Waffle with Berries</p>
-          <p class="price">6.50</p>
-        </section>
-      </div>
-      <div class="dessert-item">
-        <section class="item-image-add-to-cart">
-          <img src="assets/images/image-brownie-tablet.jpg" alt="dessert image">
-          <app-add-to-cart />
-        </section>
-        <section class="item-info">
-          <p class="category">Waffle</p>
-          <p class="name">Waffle with Berries</p>
-          <p class="price">6.50</p>
-        </section>
-      </div>
-      <div class="dessert-item">
-        <section class="item-image-add-to-cart">
-          <img src="assets/images/image-panna-cotta-tablet.jpg" alt="dessert image">
-          <app-add-to-cart />
-        </section>
-        <section class="item-info">
-          <p class="category">Waffle</p>
-          <p class="name">Waffle with Berries</p>
-          <p class="price">6.50</p>
-        </section>
-      </div>
+  <article class="dessert-item">
+    <div class="item-image-add-to-cart">
+      <picture>
+        <source media="(min-width:1024px)" [srcset]="dessert.image.desktop">
+        <source media="(min-width:640px)" [srcset]="dessert.image.tablet">
+        <img [src]="dessert.image.mobile" [alt]="dessert.name">
+      </picture>
+      <app-add-to-cart></app-add-to-cart>
     </div>
+    <div class="item-info">
+      <p class="category">{{ dessert.category }}</p>
+      <h2 class="name">{{ dessert.name }}</h2>
+      <p class="price">${{ dessert.price.toFixed(2) }}</p>
+    </div>
+  </article>
+</div>

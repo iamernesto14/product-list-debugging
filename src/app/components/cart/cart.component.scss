@@ -53,6 +53,15 @@
       background-color: $rose-50;
       margin-top: 1.5rem;
       border-radius: 8px;
+
+      p {
+        @include TextPreset4;
+        color: $rose-900;
+
+        span {
+          @include TextPreset4Bold;
+        }
+      }
     }
 
     .confirm-order-btn {
@@ -64,6 +73,11 @@
       color: $white;
       @include TextPreset3;
       margin-top: 1.5rem;
+
+      &:hover {
+        background-color: $rose-900;
+        transition: all 300ms ease-in-out;
+      }
     }
   }
 

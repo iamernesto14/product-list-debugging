@@ -1,28 +1,60 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: rgba($rose-900, 0.5);
+  @include flex(row, center, center);
   z-index: 1000;
 }
 
 .modal-content {
-  background: white;
+  background: $white;
   padding: 2rem;
   border-radius: 8px;
-  max-width: 500px;
+  max-width: 400px;
   width: 90%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba($black, 0.2);
+  max-height: 80vh; 
+  overflow-y: auto; 
+  scrollbar-width: thin; 
+  scrollbar-color: transparent transparent; 
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $rose-50;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $green;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: darken($green, 10%);
+  }
 }
 
 h2 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+  @include TextPreset2;
+  margin-bottom: 0.5rem;
+  color: $rose-900;
+  margin-top: 1.5rem;
+}
+
+h4 {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    color: $rose-500;
+    font-weight: normal;
 }
 
 .cart-items {
@@ -32,69 +64,95 @@ h2 {
 }
 
 .cart-items li {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #eee;
+  padding: 0.5rem 1rem;
+  background-color: $rose-50;
+  border-bottom: 1px solid $rose-100;
+}
+
+.item-container {
+  @include flex(row, flex-start, center, 1rem);
+}
+
+.item-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
 .items {
-  display: flex;
-  flex-direction: column;
+  @include flex(column);
+  flex: 1;
+}
+
+.item-name {
+  @include TextPreset4Bold;
+  color: $rose-900;
 }
 
 .item-quantity {
-  display: flex;
-  gap: 1rem;
+  @include flex(row, flex-start, center, 1rem);
 }
 
 .qty {
-  font-weight: bold;
-  color: #4caf50;
+  @include TextPreset4Bold;
+  color: $red;
 }
 
 .price {
-  color: #888;
+  @include TextPreset4;
+  color: $rose-500;
 }
 
 .mini-total {
-  font-weight: bold;
+  @include TextPreset4Bold;
+  color: $rose-900;
 }
 
 .order-total {
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
+  @include flex(row, space-between);
+  @include TextPreset4Bold;
+  color: $rose-900;
   margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .start-order-btn {
   width: 100%;
   padding: 0.75rem;
-  background: #4caf50;
-  color: white;
+  background: $red;
+  @include TextPreset4;
+  color: $white;
   border: none;
-  border-radius: 4px;
+  border-radius: 99px;
   cursor: pointer;
-  font-size: 1rem;
-}
 
-.start-order-btn:hover {
-  background: #45a049;
+  &:hover {
+    background: $rose-900;
+    transition: all 300ms ease-in-out;
+  }
 }
 
 @media (max-width: 600px) {
   .modal-content {
     width: 95%;
     padding: 1rem;
+    max-height: 60vh;
   }
 
   h2 {
-    font-size: 1.2rem;
+    font-size: 20px;
+    line-height: 125%;
+  }
+
+  .item-image {
+    width: 40px;
+    height: 40px;
   }
 
   .start-order-btn {
     padding: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 12px; 
   }
 }

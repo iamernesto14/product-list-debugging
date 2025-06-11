@@ -1,6 +1,10 @@
 <div class="modal-overlay">
   <div class="modal-content">
-    <h2>Order Confirmation</h2>
+    <div>
+        <img src="assets/images/icon-order-confirmed.svg" alt="thank you illustration icon">
+    </div>
+    <h2>Order Confirmed</h2>
+    <h4>We hope you enjoy your food!</h4>
     @if (cartItems.length === 0) {
       <p>No items in the order.</p>
     } @else {
@@ -20,7 +24,7 @@
                 </div>
               </div>
             </li>
-            <hr />
+            <!-- <hr /> -->
           }
         }
       </ul>

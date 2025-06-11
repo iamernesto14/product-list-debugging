@@ -1,11 +1,25 @@
 <section class="cart">
-    <h2>Your Cart (0)</h2>
-    <div class="content">
-      <div class="empty-cart-content">
-        <img src="assets/images/illustration-empty-cart.svg" alt="empty cart svg">
-        <p class="empty-cart-description">
-          Your added items will appear here
-        </p>
-      </div>
-    </div>
-</section>
+       <h2>Your Cart ({{ cartItems.length }})</h2>
+       <div class="content">
+         @if (cartItems.length === 0) {
+           <div class="empty-cart-content">
+             <img src="assets/images/illustration-empty-cart.svg" alt="empty cart svg">
+             <p class="empty-cart-description">Your added items will appear here</p>
+           </div>
+         } @else {
+           <ul>
+             @for (item of cartItems; track item.dessert?.name) {
+               @if (item.dessert && item.dessert.name) {
+                 <li>
+                   <span>{{ item.dessert.name }}</span>
+                   <span>{{ item.quantity }} x ${{ item.dessert.price?.toFixed(2) }}</span>
+                   <span>Total: ${{ (item.quantity * (item.dessert.price || 0)).toFixed(2) }}</span>
+                   <button (click)="removeItem(item.dessert)">Remove</button>
+                 </li>
+               } 
+             }
+           </ul>
+           <p>Order Total: ${{ totalPrice.toFixed(2) }}</p>
+         }
+       </div>
+     </section>

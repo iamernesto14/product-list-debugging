@@ -12,3 +12,8 @@ export interface DessertImages {
   tablet: string;
   desktop: string;
 };
+
+export interface CartItem {
+  dessert: Dessert;
+  quantity: number;
+}

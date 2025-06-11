@@ -17,14 +17,15 @@
                 <div class="items">
                   <span class="item-name">{{ item.dessert.name }}</span>
                   <div class="item-quantity">
-                    <div class="qty">{{ item.quantity }}x</div>
-                    <div class="price">&commat; ${{ item.dessert.price.toFixed(2) }}</div>
+                    <div class="qty-container">
+                        <div class="qty">{{ item.quantity }}x</div>
+                        <div class="price">&commat; ${{ item.dessert.price.toFixed(2) }}</div>
+                    </div>
                     <div class="mini-total">${{ (item.quantity * (item.dessert.price || 0)).toFixed(2) }}</div>
                   </div>
                 </div>
               </div>
             </li>
-            <!-- <hr /> -->
           }
         }
       </ul>

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
+import { CommonModule } from '@angular/common';
 import { Dessert } from '../../models/dessert.interface';
 
 interface CartItem {

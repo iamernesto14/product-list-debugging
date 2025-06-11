@@ -1,1 +1,31 @@
-<p>order-confirmation works!</p>
+<div class="modal-overlay">
+  <div class="modal-content">
+    <h2>Order Confirmation</h2>
+    @if (cartItems.length === 0) {
+      <p>No items in the order.</p>
+    } @else {
+      <ul class="cart-items">
+        @for (item of cartItems; track item.dessert?.name) {
+          @if (item.dessert && item.dessert.name) {
+            <li>
+              <div class="items">
+                <span>{{ item.dessert.name }}</span>
+                <div class="item-quantity">
+                  <div class="qty">{{ item.quantity }}x</div>
+                  <div class="price">&commat; ${{ item.dessert.price?.toFixed(2) }}</div>
+                  <div class="mini-total">${{ (item.quantity * (item.dessert.price || 0)).toFixed(2) }}</div>
+                </div>
+              </div>
+            </li>
+            <hr />
+          }
+        }
+      </ul>
+      <div class="order-total">
+        <p>Order Total</p>
+        <p>${{ totalPrice.toFixed(2) }}</p>
+      </div>
+    }
+    <button class="start-order-btn" (click)="onStartNewOrder()">Start New Order</button>
+  </div>
+</div>

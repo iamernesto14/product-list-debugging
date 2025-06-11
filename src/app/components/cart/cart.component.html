@@ -3,10 +3,7 @@
   <div class="content">
     @if (cartItems.length === 0) {
       <div class="empty-cart-content">
-        <img
-          src="assets/images/illustration-empty-cart.svg"
-          alt="empty cart svg"
-        />
+        <img src="assets/images/illustration-empty-cart.svg" alt="empty cart svg" />
         <p class="empty-cart-description">Your added items will appear here</p>
       </div>
     } @else {
@@ -18,16 +15,12 @@
                 <span>{{ item.dessert.name }}</span>
                 <div class="item-quantity">
                   <div class="qty">{{ item.quantity }}x</div>
-                  <div class="price"> &commat; ${{ item.dessert.price?.toFixed(2) }}</div>
-                  <div class="mini-total">
-                    ${{
-                      (item.quantity * (item.dessert.price || 0)).toFixed(2)
-                    }}</div
-                  >
+                  <div class="price">&commat; ${{ item.dessert.price?.toFixed(2) }}</div>
+                  <div class="mini-total">${{ (item.quantity * (item.dessert.price || 0)).toFixed(2) }}</div>
                 </div>
               </div>
               <div class="remove" (click)="removeItem(item.dessert)">
-                <img src="assets/images/icon-remove-item.svg" alt="" />
+                <img src="assets/images/icon-remove-item.svg" alt="remove item" />
               </div>
             </li>
             <hr />
@@ -35,16 +28,21 @@
         }
       </ul>
       <div class="order-total">
-        <p>Order Total </p>
+        <p>Order Total</p>
         <p>${{ totalPrice.toFixed(2) }}</p>
       </div>
-
       <div class="delivery-info">
-        <img src="assets/images/icon-carbon-neutral.svg" alt="">
+        <img src="assets/images/icon-carbon-neutral.svg" alt="carbon neutral icon">
         <p>This is a <span>carbon-neutral</span> delivery</p>
       </div>
-
-      <button class="confirm-order-btn">Confirm Order</button>
+      <button class="confirm-order-btn" (click)="openModal()">Confirm Order</button>
     }
   </div>
+  <app-order-confirmation
+    *ngIf="showModal"
+    [cartItems]="cartItems"
+    [totalPrice]="totalPrice"
+    (closeModal)="closeModal()"
+    (startNewOrder)="startNewOrder()"
+  ></app-order-confirmation>
 </section>

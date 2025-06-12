@@ -131,6 +131,10 @@
       border: 1px solid $rose-400;
       padding: 5px;
       border-radius: 50%;
+
+      &:hover {
+        border: 1px solid $black;
+      }
     }
   }
 }

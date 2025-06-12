@@ -1,0 +1,214 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($rose-900, 0.5);
+  @include flex(row, center, center);
+  z-index: 1000;
+
+  &.closing {
+    animation: zoom-out 0.3s ease-in forwards;
+  }
+}
+
+.modal-content {
+  background: $white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 8px rgba($black, 0.2);
+  max-height: 80vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $rose-50;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $green;
+    border-radius: 4px;
+  }
+}
+
+h2 {
+  @include TextPreset2;
+  margin-bottom: 0.5rem;
+  color: $rose-900;
+  margin-top: 1.4rem;
+}
+
+h4 {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: $rose-500;
+  font-weight: normal;
+}
+
+.cart-items {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-items li {
+  padding: 0.5rem 1rem;
+  background-color: $rose-50;
+  border-bottom: 1px solid $rose-100;
+}
+
+.item-container {
+  @include flex(row, flex-start, center, 1rem);
+}
+
+.item-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.items {
+  @include flex(column);
+  flex: 1;
+}
+
+.item-name {
+  @include TextPreset4Bold;
+  color: $rose-900;
+}
+
+.item-quantity {
+  @include flex(row, space-between, center, 1rem);
+}
+
+.qty {
+  @include TextPreset4Bold;
+  color: $red;
+}
+
+.price {
+  @include TextPreset4;
+  color: $rose-500;
+}
+
+.mini-total {
+  @include TextPreset4Bold;
+  color: $rose-900;
+}
+
+.qty-container {
+    @include flex(row, null, center);
+    gap: 0.5rem;
+}
+
+.order-total {
+  @include flex(row, space-between);
+  @include TextPreset4;
+  color: $rose-900;
+  margin-bottom: 1rem;
+  background-color: $rose-50;
+  padding: 1rem;
+
+  p:last-child {
+     @include TextPreset2;
+    color: $rose-900;
+  }
+}
+
+.start-order-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: $red;
+  @include TextPreset4;
+  color: $white;
+  border: none;
+  border-radius: 99px;
+  cursor: pointer;
+
+  &:hover {
+    background: $rose-900;
+    transition: all 300ms ease-in-out;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoom-out {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .modal-overlay {
+    align-items: flex-end; 
+  }
+
+  .modal-content {
+    width: 100%; 
+    max-width: none; 
+    padding: 1rem;
+    max-height: 80vh;
+    border-bottom-left-radius: 0; 
+    border-bottom-right-radius: 0;
+    animation: slide-up 0.3s ease-out forwards; 
+  }
+
+  h2 {
+    font-size: 20px;
+    line-height: 125%;
+  }
+
+  .item-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .start-order-btn {
+    padding: 1rem;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 501px) {
+  .modal-content {
+    animation: zoom-in 0.5s ease-out forwards;
+  }
+}

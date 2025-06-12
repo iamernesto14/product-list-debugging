@@ -1,0 +1,39 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <div>
+        <img src="assets/images/icon-order-confirmed.svg" alt="thank you illustration icon">
+    </div>
+    <h2>Order Confirmed</h2>
+    <h4>We hope you enjoy your food!</h4>
+    @if (cartItems.length === 0) {
+      <p>No items in the order.</p>
+    } @else {
+      <ul class="cart-items">
+        @for (item of cartItems; track item.dessert?.name) {
+          @if (item.dessert && item.dessert.name && item.dessert.image.thumbnail) {
+            <li>
+              <div class="item-container">
+                <img class="item-image" [src]="item.dessert.image.thumbnail" [alt]="item.dessert.name + ' thumbnail'" />
+                <div class="items">
+                  <span class="item-name">{{ item.dessert.name }}</span>
+                  <div class="item-quantity">
+                    <div class="qty-container">
+                        <div class="qty">{{ item.quantity }}x</div>
+                        <div class="price">&commat; ${{ item.dessert.price.toFixed(2) }}</div>
+                    </div>
+                    <div class="mini-total">${{ (item.quantity * (item.dessert.price || 0)).toFixed(2) }}</div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          }
+        }
+      </ul>
+      <div class="order-total">
+        <p>Order Total</p>
+        <p>${{ totalPrice.toFixed(2) }}</p>
+      </div>
+    }
+    <button class="start-order-btn" (click)="onStartNewOrder()">Start New Order</button>
+  </div>
+</div>

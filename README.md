@@ -1,59 +1,105 @@
-# ProductListWithCart
+# Product List with Cart
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+A responsive e-commerce Angular application for browsing dessert products, managing a shopping cart, and confirming orders. The app features dynamic product cards, an interactive cart, and an order confirmation modal with a polished, mobile-friendly UI. Built with Angular 18, TypeScript, and SCSS, it uses a custom design system with `RedHatText` fonts and a consistent color palette.
 
-## Development server
+## Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+- [Project Structure](#project-structure)
+- [Technologies](#technologies)
+- [Contributing](#contributing)
+- [License](#license)
 
-To start a local development server, run:
+## Features
+- **Dynamic Product Cards**: Displays desserts from `data.json` with images, categories, names, and prices.
+- **Interactive Cart**: Add, remove, and update item quantities with real-time total calculations.
+- **Order Confirmation Modal**: Shows cart items, images, and totals, with a "Start New Order" button to reset the cart.
 
-```bash
-ng serve
+## Installation
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/product-list-cart.git
+   cd product-list-cart
+   ```
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Run the Development Server**:
+   ```bash
+   ng serve
+   ```
+4. **Access the App**:
+   Open `http://localhost:4200` in your browser.
+
+5. **Build for Production**:
+   ```bash
+   ng build --prod
+   ```
+   Output is in the `dist/` folder, ready for deployment.
+
+## Project Structure
+```
+product-list-cart/
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   │   ├── product-card/
+│   │   │   │   ├── product-card.component.ts|html|scss
+│   │   │   ├── cart/
+│   │   │   │   ├── cart.component.ts|html|scss
+│   │   │   ├── add-to-cart/
+│   │   │   │   ├── add-to-cart.component.ts|html|scss
+│   │   │   ├── order-confirmation/
+│   │   │   │   ├── order-confirmation.component.ts|html|scss
+│   │   ├── services/
+│   │   │   ├── cart.service.ts
+│   │   │   ├── dessert.service.ts
+│   │   ├── models/
+│   │   │   ├── dessert.interface.ts
+│   │   ├── app.component.ts|html|scss
+│   ├── assets/
+│   │   ├── data.json
+│   │   ├── images/
+│   │   ├── fonts/
+│   │   │   ├── static/
+│   │   │   │   ├── RedHatText-Bold.ttf
+│   │   │   │   ├── RedHatText-SemiBold.ttf
+│   │   │   │   ├── RedHatText-Regular.ttf
+│   ├── styles/
+│   │   ├── _fonts.scss
+│   │   ├── _mixins.scss
+│   │   ├── _reset.scss
+│   │   ├── _variables.scss
+│   │   ├── styles.scss
+├── Bugs.md
+├── README.md
+├── angular.json
+├── package.json
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Components**: Standalone components for modularity (`ProductCardComponent`, `CartComponent`, etc.).
+- **Services**: `DessertService` for data fetching, `CartService` for cart state.
+- **Assets**: `data.json` for product data, images, and fonts.
+- **Styles**: SCSS files for global and component-specific styling.
+- **Bugs.md**: Tracks bugs, fixes, and enhancements.
 
-## Code scaffolding
+## Technologies
+- **Angular**: 18.x
+- **TypeScript**: 5.x
+- **SCSS**: Custom design system with `RedHatText` fonts
+- **Angular HTTPClient**: For fetching `data.json`
+- **Dependencies**:
+  - `@angular/core`, `@angular/common`, `@angular/common/http`
+  - `rxjs`
+- **Build Tools**: Angular CLI, Webpack (via `ng build`)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Contributing
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature/your-feature`.
+3. Commit changes: `git commit -m "Add your feature"`.
+4. Push to the branch: `git push origin feature/your-feature`.
+5. Open a pull request with a detailed description.
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## License
+MIT License. See [LICENSE](LICENSE) for details.

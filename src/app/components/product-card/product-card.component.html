@@ -1,0 +1,23 @@
+<div class="desserts-container">
+  <!-- product-card.component.html -->
+  <div class="dessert-item">
+    <div class="item-image-add-to-cart">
+      <picture>
+        <source media="(max-width: 600px)" [srcset]="dessert.image.mobile" />
+        <source media="(max-width: 1024px)" [srcset]="dessert.image.tablet" />
+        <source media="(min-width: 1025px)" [srcset]="dessert.image.desktop" />
+        <img
+          [src]="dessert.image.thumbnail"
+          alt="{{ dessert.name || 'Dessert' }}"
+          class="dessert-img"
+        />
+      </picture>
+      <app-add-to-cart [dessert]="dessert"></app-add-to-cart>
+    </div>
+    <div class="item-info">
+      <p class="category">{{ dessert.category }}</p>
+      <p class="name">{{ dessert.name }}</p>
+      <p class="price">${{ dessert.price.toFixed(2) }}</p>
+    </div>
+  </div>
+</div>

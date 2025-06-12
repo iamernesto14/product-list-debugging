@@ -176,6 +176,10 @@ h4 {
   }
 }
 
+.modal-content {
+    animation: zoom-in 0.5s ease-out forwards;
+  }
+
 @media (max-width: 500px) {
   .modal-overlay {
     align-items: flex-end; 
@@ -204,11 +208,5 @@ h4 {
   .start-order-btn {
     padding: 1rem;
     font-size: 12px;
-  }
-}
-
-@media (min-width: 501px) {
-  .modal-content {
-    animation: zoom-in 0.5s ease-out forwards;
   }
 }
